@@ -1,0 +1,1 @@
+The only corrections to the 2 Valentino fonts are the setting of the fsType flag to 0 (Everything allowed for embedding).

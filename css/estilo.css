@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+/* ===================== */
+/*  Estilos personalizados */
+/* ===================== */
+
+.libro {
+  position: relative;
+  perspective: 1500px;
+  width: 100%;
+  max-width: 500px;
+  height: 400px;
+  margin: 0 auto;
+}
+
+.pagina {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  transform-origin: left;
+  transition: transform 0.8s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Oculta todas las páginas por defecto */
+#pagina1:checked ~ .pagina1,
+#pagina2:checked ~ .pagina2,
+#pagina3:checked ~ .pagina3,
+#pagina4:checked ~ .pagina4,
+#pagina5:checked ~ .pagina5,
+#pagina6:checked ~ .pagina6 {
+  z-index: 10;
+  transform: rotateY(0deg);
+}
+
+/* Efecto de “pasar página” */
+#pagina2:checked ~ .pagina1,
+#pagina3:checked ~ .pagina1,
+#pagina3:checked ~ .pagina2,
+#pagina4:checked ~ .pagina1,
+#pagina4:checked ~ .pagina2,
+#pagina4:checked ~ .pagina3,
+#pagina5:checked ~ .pagina1,
+#pagina5:checked ~ .pagina2,
+#pagina5:checked ~ .pagina3,
+#pagina5:checked ~ .pagina4,
+#pagina6:checked ~ .pagina1,
+#pagina6:checked ~ .pagina2,
+#pagina6:checked ~ .pagina3,
+#pagina6:checked ~ .pagina4,
+#pagina6:checked ~ .pagina5 {
+  transform: rotateY(-180deg);
+  z-index: 1;
+}
+
+/* Animación suave */
+@keyframes aparecer {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>French Revolution Comic</title>
+  <link href="./src/output.css" rel="stylesheet">
+  <!-- Fuentes del diseño original -->
+  <link href="https://fonts.googleapis.com/css2?family=IM+Fell+French+Canon+Pro&display=swap" rel="stylesheet">
+  <style>
+    @font-face {
+      font-family: 'Sucrose Bold Two';
+      src: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/sucrose.woff2') format('woff2');
+    }
+  </style>
+</head>
+<body class="bg-gray-100 text-gray-800 font-[IM_Fell_French_Canon_Pro] min-h-screen flex flex-col">
+
+  <!-- Encabezado -->
+  <header class="relative bg-cover bg-center text-center py-24 px-6"
+          style="background-image: url('img/frenchrevolution4.jpg');">
+    <div class="bg-black/40 absolute inset-0"></div>
+    <div class="relative z-10">
+      <h1 class="text-6xl md:text-8xl leading-tight font-[Sucrose_Bold_Two] text-white drop-shadow-lg">
+        Revolución Francesa Comic
+      </h1>
+      <h2 class="text-2xl md:text-3xl mt-6 text-gray-200 italic">por Giselle Ciardullo</h2>
+    </div>
+  </header>
+
+
+
+  <!-- Galería -->
+  <main class="flex-grow max-w-6xl mx-auto p-8 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+    <template id="imagen-template">
+      <img class="cursor-pointer rounded-lg shadow-md hover:scale-125 transition-transform duration-300" />
+    </template>
+  </main>
+
+  <!-- Overlay para ver imagen grande -->
+  <div id="overlay" class="hidden fixed inset-0 bg-black/80 flex items-center justify-center z-50">
+    <img id="imagen-grande" class="max-h-[90vh] max-w-[90vw] rounded-lg shadow-2xl transition-transform duration-500 scale-100" />
+    <button id="cerrar" class="absolute top-6 right-8 text-white text-4xl hover:scale-125 transition-transform">×</button>
+  </div>
+  <!-- Botón de volver -->
+  <div class="flex justify-center mt-10">
+    <a href="index.html"
+       class="bg-gray-800 text-white text-lg px-6 py-3 rounded-full shadow-md hover:bg-gray-700 hover:scale-105 transform transition-all duration-300 font-semibold tracking-wide">
+      ← Volver a la portada
+    </a>
+  </div>
+  <!-- Footer -->
+  <footer class="text-center py-6 text-gray-600 text-sm">
+    <p>&copy; 2023 Giselle Ciardullo. Todos los derechos reservados.</p>
+  </footer>
+
+  <!-- Script -->
+  <script>
+    const imagenes = [
+      "img/revolucion/frenchrevolution1.jpg",
+      "img/revolucion/frenchrevolutiondos.jpg",
+      "img/revolucion/frenchrevolution3.jpg",
+      "img/revolucion/frenchrevolution4.jpg",
+      "img/revolucion/frenchrevolution5.jpg",
+      "img/revolucion/frenchrevolution6.jpg",
+      "img/revolucion/frenchrevolution7.jpg",
+      "img/revolucion/frenchrevolution8.jpg",
+      "img/revolucion/frenchrevolution9.jpg",
+      "img/revolucion/frenchrevolution10.jpg",
+      "img/revolucion/frenchrevolution11.jpg",
+      "img/revolucion/frenchrevolution12.jpg",
+      "img/revolucion/frenchrevolution13.jpg",
+    ];
+
+    const contenedor = document.querySelector("main");
+    const template = document.querySelector("#imagen-template");
+
+    imagenes.forEach(src => {
+      const clone = template.content.cloneNode(true);
+      const img = clone.querySelector("img");
+      img.src = src;
+      img.alt = "Página de cómic";
+      img.onclick = () => abrirImagen(src);
+      contenedor.appendChild(clone);
+    });
+
+    const overlay = document.getElementById("overlay");
+    const imgGrande = document.getElementById("imagen-grande");
+    const cerrar = document.getElementById("cerrar");
+
+    function abrirImagen(src) {
+      imgGrande.src = src;
+      overlay.classList.remove("hidden");
+      setTimeout(() => imgGrande.classList.add("scale-105"), 10);
+    }
+
+    cerrar.onclick = () => {
+      imgGrande.classList.remove("scale-105");
+      setTimeout(() => overlay.classList.add("hidden"), 300);
+    };
+
+    overlay.onclick = (e) => {
+      if (e.target === overlay) cerrar.onclick();
+    };
+  </script>
+
+</body>
+</html>
