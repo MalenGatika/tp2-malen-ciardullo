@@ -8,55 +8,49 @@
   <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Fuente escrita a mano -->
-  <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+  <!-- Fuentes -->
+  <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
 
   <!-- Estilos -->
-  <link rel="stylesheet" href="css/cuadernos.css">
+  <link rel="stylesheet" href="css/estilo.css">
 </head>
 
-<body class="bg-gray-200 flex flex-col items-center justify-center min-h-screen">
+<body class="flex flex-col items-center justify-center min-h-screen text-[#F8EDEB]">
 
-  <h1 class="text-5xl font-bold mb-8 text-gray-800" style="font-family: 'Patrick Hand', cursive;">
+  <h1 class="text-5xl mb-10 text-[#F8EDEB]" style="font-family: 'Playfair Display', serif;">
     Cuadernos
   </h1>
 
-  <!-- 📖 Libro -->
+  <!-- Libro -->
   <div class="libro relative w-[440px] h-[560px] perspective">
 
     <!-- Páginas -->
-    <div class="pagina hoja bg-white flex flex-col items-center justify-center rounded-lg shadow-lg"
-         style="z-index:6">
+    <div class="pagina hoja" style="z-index:6">
       <img src="img/cuadernos/sketch1.jpg" alt="Cuaderno 1" class="imagen-hoja">
       <p class="titulo-pagina">Cuaderno 1</p>
     </div>
 
-    <div class="pagina hoja bg-white flex flex-col items-center justify-center rounded-lg shadow-lg"
-         style="z-index:5">
+    <div class="pagina hoja" style="z-index:5">
       <img src="img/cuadernos/sketch2.jpg" alt="Cuaderno 2" class="imagen-hoja">
       <p class="titulo-pagina">Cuaderno 2</p>
     </div>
 
-    <div class="pagina hoja bg-white flex flex-col items-center justify-center rounded-lg shadow-lg"
-         style="z-index:4">
+    <div class="pagina hoja" style="z-index:4">
       <img src="img/cuadernos/sketch3.jpg" alt="Cuaderno 3" class="imagen-hoja">
       <p class="titulo-pagina">Cuaderno 3</p>
     </div>
 
-    <div class="pagina hoja bg-white flex flex-col items-center justify-center rounded-lg shadow-lg"
-         style="z-index:3">
+    <div class="pagina hoja" style="z-index:3">
       <img src="img/cuadernos/sketch4.jpg" alt="Cuaderno 4" class="imagen-hoja">
       <p class="titulo-pagina">Cuaderno 4</p>
     </div>
 
-    <div class="pagina hoja bg-white flex flex-col items-center justify-center rounded-lg shadow-lg"
-         style="z-index:2">
+    <div class="pagina hoja" style="z-index:2">
       <img src="img/cuadernos/sketch5.jpg" alt="Cuaderno 5" class="imagen-hoja">
       <p class="titulo-pagina">Cuaderno 5</p>
     </div>
 
-    <div class="pagina hoja bg-white flex flex-col items-center justify-center rounded-lg shadow-lg"
-         style="z-index:1">
+    <div class="pagina hoja" style="z-index:1">
       <img src="img/cuadernos/sketch6.jpg" alt="Cuaderno 6" class="imagen-hoja">
       <p class="titulo-pagina">Cuaderno 6</p>
     </div>
@@ -65,17 +59,17 @@
   <!-- Botones -->
   <div class="flex gap-6 mt-10">
     <button id="anterior"
-      class="px-6 py-2 bg-indigo-600 text-white rounded-lg shadow hover:bg-indigo-700 transition text-lg">
+      class="px-6 py-2 bg-[#7A1E3A] text-white rounded-lg shadow hover:bg-[#A23E48] transition text-lg">
       ← Anterior
     </button>
     <button id="siguiente"
-      class="px-6 py-2 bg-indigo-600 text-white rounded-lg shadow hover:bg-indigo-700 transition text-lg">
+      class="px-6 py-2 bg-[#7A1E3A] text-white rounded-lg shadow hover:bg-[#A23E48] transition text-lg">
       Siguiente →
     </button>
   </div>
 
   <a href="index.html"
-     class="mt-10 bg-gray-800 text-white px-6 py-2 rounded-lg hover:bg-gray-700 transition">
+     class="mt-10 bg-[#A23E48] text-white px-6 py-2 rounded-lg hover:bg-[#7A1E3A] transition">
      Volver a la portada
   </a>
 

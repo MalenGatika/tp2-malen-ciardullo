@@ -4,6 +4,12 @@
 /*  Estilos personalizados */
 /* ===================== */
 
+body {
+  background-color: #3A0A0A; /* Bordó oscuro elegante */
+  color: #F8EDEB; /* Texto general claro */
+}
+
+/* Libro */
 .libro {
   position: relative;
   perspective: 1500px;
@@ -11,8 +17,12 @@
   max-width: 500px;
   height: 400px;
   margin: 0 auto;
+  border: 2px solid #A23E48; /* Bordó intenso */
+  box-shadow: 0 0 40px rgba(162, 62, 72, 0.5);
+  background-color: transparent;
 }
 
+/* Páginas */
 .pagina {
   position: absolute;
   width: 100%;
@@ -24,20 +34,12 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  background-color: #F5E6D3; /* Beige crema */
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
 }
 
-/* Oculta todas las páginas por defecto */
-#pagina1:checked ~ .pagina1,
-#pagina2:checked ~ .pagina2,
-#pagina3:checked ~ .pagina3,
-#pagina4:checked ~ .pagina4,
-#pagina5:checked ~ .pagina5,
-#pagina6:checked ~ .pagina6 {
-  z-index: 10;
-  transform: rotateY(0deg);
-}
-
-/* Efecto de “pasar página” */
+/* Efecto de pasar página */
 #pagina2:checked ~ .pagina1,
 #pagina3:checked ~ .pagina1,
 #pagina3:checked ~ .pagina2,
@@ -55,6 +57,176 @@
 #pagina6:checked ~ .pagina5 {
   transform: rotateY(-180deg);
   z-index: 1;
+}
+
+/* Imagen dentro de la hoja */
+.imagen-hoja {
+  width: 96%;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  transition: transform 0.5s ease;
+}
+
+.imagen-hoja:hover {
+  transform: scale(1.05);
+}
+
+/* Texto de cada página */
+.titulo-pagina {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.3rem;
+  color: #4B1C24; /* Bordó oscuro sobre fondo claro */
+  margin-top: 0.5rem;
+}
+
+/* Efecto de sombra durante el paso */
+.hoja.pasando::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.3), rgba(0,0,0,0));
+  opacity: 0.7;
+  border-radius: 12px;
+  pointer-events: none;
+  z-index: 30;
+  transition: opacity 0.4s;
+}
+
+.hoja.pasando {
+  transform: rotateY(-180deg);
+  z-index: 7 !important;
+}
+
+.hoja.detras {
+  z-index: 1 !important;
+}
+/*comic */
+
+.page-french {
+  background-color: #1a0b0b;
+  color: #f0e6e6;
+}
+
+.page-french header h1 {
+  font-family: "Playfair Display", serif;
+  color: #f0e6e6;
+  letter-spacing: 1px;
+  text-shadow: 0 3px 8px rgba(0, 0, 0, 0.8);
+}
+
+.page-french h2 {
+  color: #d1bebe;
+  font-style: italic;
+}
+
+.page-french main img {
+  border: 1px solid #6b1a1a;
+  border-radius: 0.5rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.page-french main img:hover {
+  transform: scale(1.25);
+  box-shadow: 0 0 15px rgba(139, 0, 0, 0.7);
+}
+
+.page-french a {
+  background-color: #4c0e0e;
+  color: #f0e6e6;
+  border-radius: 9999px;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.page-french a:hover {
+  background-color: #6b1a1a;
+  transform: scale(1.05);
+}
+
+.page-french footer {
+  color: #bfa9a9;
+  border-top: 1px solid #4c0e0e;
+}
+
+/*NOVELA GRAFICA*/
+/* === Paleta bordo elegante === */
+:root {
+  --bordo-oscuro: #2b0d12;
+  --bordo-medio: #4b1a1f;
+  --bordo-claro: #a04657;
+  --beige: #e3c9b3;
+  --blanco-suave: #f3edea;
+}
+
+/* Fondo y textos */
+.bg-bordo-oscuro { background-color: var(--bordo-oscuro); }
+.text-bordo-claro { color: var(--bordo-claro); }
+.text-beige { color: var(--beige); }
+.text-blanco-suave { color: var(--blanco-suave); }
+
+/* Tipografías */
+.font-ubuntu { font-family: 'Ubuntu', sans-serif; }
+.font-fell { font-family: 'IM Fell French Canon Pro', serif; }
+
+/* Miniaturas */
+.miniatura {
+  border: 2px solid var(--bordo-medio);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.miniatura:hover {
+  transform: scale(1.15);
+  box-shadow: 0 6px 16px rgba(160,70,87,0.6);
+}
+
+/* Overlay imagen grande */
+#vistaGrande {
+  background-color: rgba(0,0,0,0.9);
+}
+
+/* Animación apertura overlay */
+@keyframes abrirOverlay {
+  0% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.05);
+  }
+}
+
+#vistaGrande .imagen-grande {
+  max-width: 98%;
+  max-height: 98vh; /* ocupa casi toda la ventana */
+  border-radius: 0.75rem;
+  box-shadow: 0 0 40px rgba(160,70,87,0.7);
+  transition: transform 0.3s ease-in-out;
+  transform: scale(1.05); /* ya escalada al abrir */
+  animation: abrirOverlay 0.4s ease forwards;
+}
+
+#vistaGrande .imagen-grande:hover {
+  transform: scale(1.25); /* aumenta más al pasar mouse */
+}
+
+/* Botones overlay */
+#vistaGrande button {
+  background-color: rgba(75,26,31,0.6);
+  color: var(--blanco-suave);
+  border-radius: 50%;
+  padding: 0.5rem 0.9rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+#vistaGrande button:hover {
+  transform: scale(1.2);
+  background-color: var(--bordo-claro);
 }
 
 /* Animación suave */
