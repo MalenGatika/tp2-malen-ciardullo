@@ -5,8 +5,8 @@
 /* ===================== */
 
 body {
-  background-color: #3A0A0A; /* Bordó oscuro elegante */
-  color: #F8EDEB; /* Texto general claro */
+  background-color: #3A0A0A; 
+  color: #F8EDEB; 
   margin: 0;
   padding: 0;
   font-family: 'Ubuntu', sans-serif;
@@ -21,7 +21,7 @@ body {
   height: 70vh;
   max-height: 500px;
   margin: 0 auto;
-  border: 2px solid #A23E48; /* Bordó intenso */
+  border: 2px solid #A23E48; 
   box-shadow: 0 0 40px rgba(162, 62, 72, 0.5);
   background-color: transparent;
 }
@@ -80,7 +80,7 @@ body {
 .titulo-pagina {
   font-family: 'Playfair Display', serif;
   font-size: 1.3rem;
-  color: #4B1C24; /* Bordó oscuro sobre fondo claro */
+  color: #4B1C24; 
   margin-top: 0.5rem;
   text-align: center;
 }
@@ -156,7 +156,7 @@ body {
 }
 
 /*NOVELA GRAFICA*/
-/* === Paleta bordo elegante === */
+
 :root {
   --bordo-oscuro: #2b0d12;
   --bordo-medio: #4b1a1f;
@@ -241,9 +241,7 @@ body {
   to { opacity: 1; transform: scale(1); }
 }
 
-/* ===================== */
-/* Media queries responsive */
-/* ===================== */
+/* Media queries para el responsive */
 
 /* Celulares */
 @media (max-width: 640px) {
@@ -277,7 +275,7 @@ body {
   }
 }
 
-/* Laptops pequeñas */
+/* compus chicas */
 @media (max-width: 1200px) {
   .libro {
     width: 80vw;

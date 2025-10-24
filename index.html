@@ -23,28 +23,30 @@
 
 <body class="relative min-h-screen bg-black text-white overflow-hidden">
 
-  <!-- 🌊 Video de fondo -->
-  <div class="absolute inset-0 -z-10">
-    <video id="bgVideo" autoplay muted loop playsinline class="w-full h-full object-cover">
-      <source src="img/mariposas.mp4" type="video/mp4" />
-    </video>
-    <!-- Overlay -->
-    <div class="absolute inset-0 bg-black/60"></div>
-  </div>
+<div class="absolute inset-0 -z-10 overflow-hidden">
+  
+  <!-- Video -->
+  <video id="bgVideo" autoplay muted loop playsinline class="w-full h-full object-cover">
+    <source src="img/index/video3d.mp4" type="video/mp4" />
+  </video>
 
-  <!-- 🔊 Botón de sonido -->
+  <!-- Overlay semitransparente -->
+  <div class="absolute inset-0 bg-black/60 pointer-events-none"></div>
+</div>
+
+  <!--  Botón de sonido -->
   <button id="btnAudio" 
     class="absolute bottom-6 right-6 bg-white/80 text-black px-4 py-2 rounded-lg shadow-md hover:bg-white transition z-20">
     🔊 Activar sonido
   </button>
 
-  <!-- 🖋️ Encabezado -->
+  <!--  Encabezado -->
   <header class="flex flex-col justify-center items-center h-screen text-center px-6">
     <h1 class="text-6xl md:text-8xl mb-4 drop-shadow-lg">Giselle Ciardullo</h1>
     <h2 class="text-2xl md:text-3xl font-light tracking-wider drop-shadow-md">Artes Plásticas</h2>
   </header>
 
-  <!-- 📜 Navegación -->
+  <!--  Navegación -->
   <nav class="fixed top-0 left-0 w-full bg-black/40 backdrop-blur-sm shadow-md py-4 z-30">
     <ul class="flex justify-center gap-10 text-xl font-semibold text-white">
       <li><a href="bio.html" target="_blank" class="hover:text-pink-300 transition">Biografía</a></li>
@@ -54,7 +56,7 @@
     </ul>
   </nav>
 
-  <!-- 🎶 Script externo -->
+  <!-- para manejar el audio y el problema de corte del video de fondo -->
   <script src="js/audioControl.js"></script>
 </body>
 </html>
