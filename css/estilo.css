@@ -1,21 +1,25 @@
 @import "tailwindcss";
 
 /* ===================== */
-/*  Estilos personalizados */
+/*  Estilos personalizados y responsive */
 /* ===================== */
 
 body {
   background-color: #3A0A0A; /* Bordó oscuro elegante */
   color: #F8EDEB; /* Texto general claro */
+  margin: 0;
+  padding: 0;
+  font-family: 'Ubuntu', sans-serif;
 }
 
 /* Libro */
 .libro {
   position: relative;
   perspective: 1500px;
-  width: 100%;
+  width: 90vw;
   max-width: 500px;
-  height: 400px;
+  height: 70vh;
+  max-height: 500px;
   margin: 0 auto;
   border: 2px solid #A23E48; /* Bordó intenso */
   box-shadow: 0 0 40px rgba(162, 62, 72, 0.5);
@@ -61,7 +65,8 @@ body {
 
 /* Imagen dentro de la hoja */
 .imagen-hoja {
-  width: 96%;
+  width: 95%;
+  max-width: 95%;
   border-radius: 10px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
   transition: transform 0.5s ease;
@@ -77,6 +82,7 @@ body {
   font-size: 1.3rem;
   color: #4B1C24; /* Bordó oscuro sobre fondo claro */
   margin-top: 0.5rem;
+  text-align: center;
 }
 
 /* Efecto de sombra durante el paso */
@@ -100,8 +106,8 @@ body {
 .hoja.detras {
   z-index: 1 !important;
 }
-/*comic */
 
+/*comic */
 .page-french {
   background-color: #1a0b0b;
   color: #f0e6e6;
@@ -233,4 +239,52 @@ body {
 @keyframes aparecer {
   from { opacity: 0; transform: scale(0.95); }
   to { opacity: 1; transform: scale(1); }
+}
+
+/* ===================== */
+/* Media queries responsive */
+/* ===================== */
+
+/* Celulares */
+@media (max-width: 640px) {
+  .libro {
+    width: 95vw;
+    height: 75vh;
+  }
+
+  .titulo-pagina {
+    font-size: 1rem;
+  }
+
+  .imagen-hoja {
+    width: 100%;
+  }
+}
+
+/* Tablets */
+@media (max-width: 900px) {
+  .libro {
+    width: 90vw;
+    height: 70vh;
+  }
+
+  .titulo-pagina {
+    font-size: 1.2rem;
+  }
+
+  .imagen-hoja {
+    width: 95%;
+  }
+}
+
+/* Laptops pequeñas */
+@media (max-width: 1200px) {
+  .libro {
+    width: 80vw;
+    height: 70vh;
+  }
+
+  .titulo-pagina {
+    font-size: 1.3rem;
+  }
 }
