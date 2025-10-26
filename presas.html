@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Proyecto p</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+  <link rel="stylesheet" href="css/estilo.css" />
+</head>
+<body class="relative min-h-screen bg-black text-white overflow-hidden">
+
+<div class="absolute inset-0 -z-10 overflow-hidden">
+
+
+    <!-- Video -->
+  <video id="bgVideo" autoplay muted loop playsinline class="w-full h-full object-cover">
+    <source src="img/presas/mujeres.mp4" type="video/mp4" />
+  </video>
+
+  <!-- Overlay semitransparente -->
+  <div class="absolute inset-0 bg-black/60 pointer-events-none"></div>
+</div>
+        <h1 id="title">Proyecto presas</h1>
+        <p id="body">Este proyecto fue realizado en base a imagenes de archivos de fotos sacadas a presas de la guerra civil espa;ola</p>
+       
+
+      </div>
+        
+        <div class="controls">
+          <button id="prev" class="nav" aria-label="Anterior">◀</button>
+          <span id="pager">1 / 16</span>
+          <button id="next" class="nav" aria-label="Siguiente">▶</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="js/presas.js"></script>
+</body>
+</html>
