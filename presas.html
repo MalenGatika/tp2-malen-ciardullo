@@ -1,41 +1,58 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Proyecto p</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-
-  <link rel="stylesheet" href="css/estilo.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Galería Editorial</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="relative min-h-screen bg-black text-white overflow-hidden">
 
-<div class="absolute inset-0 -z-10 overflow-hidden">
+<body class="bg-[#3A0A0A] text-[#F8EDEB] font-ubuntu min-h-screen flex flex-col items-center justify-between py-6">
 
+  <div class="relative w-[90%] max-w-5xl mx-auto">
 
-    <!-- Video -->
-  <video id="bgVideo" autoplay muted loop playsinline class="w-full h-full object-cover">
-    <source src="img/presas/mujeres.mp4" type="video/mp4" />
-  </video>
+    <!-- Fondo romboide -->
+    <div class="absolute inset-0 -skew-x-6 bg-[#4B1A1F] opacity-70 rounded-xl"></div>
 
-  <!-- Overlay semitransparente -->
-  <div class="absolute inset-0 bg-black/60 pointer-events-none"></div>
-</div>
-        <h1 id="title">Proyecto presas</h1>
-        <p id="body">Este proyecto fue realizado en base a imagenes de archivos de fotos sacadas a presas de la guerra civil espa;ola</p>
-       
+    <!-- Contenido principal -->
+    <div class="relative flex flex-col md:flex-row gap-6 p-6 md:p-10 items-center">
 
+      <!-- Imagen -->
+      <div class="md:w-1/2 w-full flex justify-center">
+        <img id="galeria-imagen" src="img/presas/uno.jpg" alt="Imagen 1"
+          class="w-full h-auto max-h-[70vh] object-cover rounded-lg shadow-xl">
       </div>
+
+      <!-- Texto -->
+      <div class="md:w-1/2 w-full text-left space-y-4">
+        <h2 class="text-3xl font-semibold tracking-wide text-[#F3EDEA]">
+          Proyecto P
+        </h2>
+<p id="galeria-texto" class="text-lg leading-relaxed text-[#EAD7D7]"></p>
         
-        <div class="controls">
-          <button id="prev" class="nav" aria-label="Anterior">◀</button>
-          <span id="pager">1 / 16</span>
-          <button id="next" class="nav" aria-label="Siguiente">▶</button>
-        </div>
       </div>
-    </section>
-  </main>
+
+    </div>
+
+    <!-- Flechas -->
+    <button id="anterior"
+      class="absolute left-2 top-1/2 -translate-y-1/2 text-3xl px-3 py-1 bg-[#4B1A1F] hover:bg-[#A23E48] rounded-full">
+      ‹
+    </button>
+    <button id="siguiente"
+      class="absolute right-2 top-1/2 -translate-y-1/2 text-3xl px-3 py-1 bg-[#4B1A1F] hover:bg-[#A23E48] rounded-full">
+      ›
+    </button>
+
+  </div>
+
+  <!-- Botón fuera del rombo -->
+  <a href="index.html"
+     class="bg-[#A23E48] text-white px-6 py-2 rounded-lg hover:bg-[#7A1E3A] transition">
+     Volver a la portada
+  </a>
 
   <script src="js/presas.js"></script>
+
 </body>
 </html>
