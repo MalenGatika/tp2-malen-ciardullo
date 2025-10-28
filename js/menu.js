@@ -1,15 +1,23 @@
-const btn = document.getElementById('tecnicasBtn');
-const menu = document.getElementById('tecnicasMenu');
+// Submenú técnicas (desktop)
+const btnTecnicas = document.getElementById('tecnicasBtn');
+const menuTecnicas = document.getElementById('tecnicasMenu');
 
-// Toggle abrir/cerrar
-btn.addEventListener('click', (e) => {
+btnTecnicas.addEventListener('click', (e) => {
   e.stopPropagation(); // Evita que el click cierre el menú
-  menu.classList.toggle('hidden');
+  menuTecnicas.classList.toggle('hidden');
 });
 
-// Cerrar si se clickea afuera
+// Cerrar submenú si se clickea afuera
 document.addEventListener('click', (e) => {
-  if (!menu.contains(e.target) && e.target !== btn) {
-    menu.classList.add('hidden');
+  if (!menuTecnicas.contains(e.target) && e.target !== btnTecnicas) {
+    menuTecnicas.classList.add('hidden');
   }
+});
+
+// Hamburger toggle (mobile)
+const btnHamburger = document.getElementById("menuBtn");
+const menuPrincipal = document.getElementById("menu");
+
+btnHamburger.addEventListener("click", () => {
+  menuPrincipal.classList.toggle("hidden");
 });

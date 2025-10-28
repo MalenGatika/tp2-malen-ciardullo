@@ -36,7 +36,42 @@
       </h2>
     </div>
   </header>
+<!-- NAVIGATION -->
+<nav class="fixed top-0 left-0 w-full bg-black/40 backdrop-blur-sm shadow-md z-50">
+  <div class="max-w-6xl mx-auto flex justify-between items-center px-4 py-3">
 
+    <!-- Logo / nombre -->
+    <div class="text-white text-xl font-semibold">
+      Giselle Ciardullo
+    </div>
+
+    <!-- Botón hamburguesa (solo en mobile) -->
+    <button id="menuBtn" class="text-white md:hidden focus:outline-none">
+      ☰
+    </button>
+
+    <!-- Menú principal -->
+    <ul id="menu" class="hidden md:flex gap-10 text-white font-semibold items-center">
+      <li><a href="bio.html" class="hover:text-pink-300 transition">Bio</a></li>
+
+      <!-- Submenú técnicas -->
+      <li class="relative group">
+        <button class="hover:text-pink-300 transition focus:outline-none flex items-center">
+          Técnicas ▾
+        </button>
+        <ul class="absolute left-0 top-full mt-2 w-40 bg-black/90 backdrop-blur-md rounded-lg shadow-lg space-y-2 p-2 hidden group-hover:flex flex-col z-50">
+          <li><a href="sketch.html" class="block hover:text-pink-300 transition">Sketchbooks</a></li>
+          <li><a href="novela.html" class="block hover:text-pink-300 transition">Novela Gráfica</a></li>
+          <li><a href="comic.html" class="block hover:text-pink-300 transition">Comic</a></li>
+          <li><a href="presas.html" class="block hover:text-pink-300 transition">Proyecto P</a></li>
+        </ul>
+      </li>
+
+      <li><a href="contacto.html" class="hover:text-pink-300 transition">Contacto</a></li>
+    </ul>
+
+  </div>
+</nav>
   <!-- Galería -->
   <main class="flex-grow max-w-6xl mx-auto p-8 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
     <template id="imagen-template">

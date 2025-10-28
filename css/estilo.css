@@ -1,12 +1,12 @@
 @import "tailwindcss";
 
-
 body {
   background-color: #3A0A0A; 
   color: #F8EDEB; 
   margin: 0;
   padding: 0;
   font-family: 'Ubuntu', sans-serif;
+  padding-top: 80px; /* evita que el menú tape el título */
 }
 
 /* Libro */
@@ -21,6 +21,7 @@ body {
   border: 2px solid #A23E48; 
   box-shadow: 0 0 40px rgba(162, 62, 72, 0.5);
   background-color: transparent;
+  z-index: 10;
 }
 
 /* Páginas */
@@ -102,6 +103,17 @@ body {
 
 .hoja.detras {
   z-index: 1 !important;
+}
+
+/* BOTONES SIGUIENTE / ANTERIOR */
+#anterior, #siguiente {
+  position: relative;
+  z-index: 100 !important; /* asegura que estén sobre las páginas */
+}
+
+/* NAV */
+nav {
+  z-index: 200 !important;
 }
 
 /*comic */
@@ -193,28 +205,22 @@ body {
 
 /* Animación apertura overlay */
 @keyframes abrirOverlay {
-  0% {
-    opacity: 0;
-    transform: scale(0.9);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1.05);
-  }
+  0% { opacity: 0; transform: scale(0.9); }
+  100% { opacity: 1; transform: scale(1.05); }
 }
 
 #vistaGrande .imagen-grande {
   max-width: 98%;
-  max-height: 98vh; /* ocupa casi toda la ventana */
+  max-height: 98vh;
   border-radius: 0.75rem;
   box-shadow: 0 0 40px rgba(160,70,87,0.7);
   transition: transform 0.3s ease-in-out;
-  transform: scale(1.05); /* ya escalada al abrir */
+  transform: scale(1.05);
   animation: abrirOverlay 0.4s ease forwards;
 }
 
 #vistaGrande .imagen-grande:hover {
-  transform: scale(1.25); /* aumenta más al pasar mouse */
+  transform: scale(1.25);
 }
 
 /* Botones overlay */
@@ -238,12 +244,12 @@ body {
   to { opacity: 1; transform: scale(1); }
 }
 
-/*pagina presas REVISARRRRRR*/
+/*pagina presas*/
 .fondop {
-   background-image: url('../img/presas/fondopresas.jpg');
-background-size: cover;
-background-position: center;
-background-repeat: no-repeat;
+  background-image: url('../img/presas/fondopresas.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   height: 100vh;
   width: 100vw;
   display: flex;
@@ -251,12 +257,9 @@ background-repeat: no-repeat;
   align-items: center;
 }
 
-
-
 /* =======================================
    CONTACTO – FORMULARIO Y DISEÑO
    ======================================= */
-
 .page-contacto {
   background-color: var(--bordo-oscuro);
   color: var(--blanco-suave);
@@ -352,64 +355,20 @@ form#formContacto button[type="submit"]:hover {
   font-size: 1rem;
 }
 
-@media (max-width: 600px) {
-  form#formContacto {
-    padding: 1.5rem;
-  }
-
-  .page-contacto header h1 {
-    font-size: 1.6rem;
-  }
-}
-
-
-
-
-
-
-/* Media queries para el responsive */
-
-/* Celulares */
+/* Responsive */
 @media (max-width: 640px) {
-  .libro {
-    width: 95vw;
-    height: 75vh;
-  }
-
-  .titulo-pagina {
-    font-size: 1rem;
-  }
-
-  .imagen-hoja {
-    width: 100%;
-  }
+  .libro { width: 95vw; height: 75vh; }
+  .titulo-pagina { font-size: 1rem; }
+  .imagen-hoja { width: 100%; }
 }
 
-/* Tablets */
 @media (max-width: 900px) {
-  .libro {
-    width: 90vw;
-    height: 70vh;
-  }
-
-  .titulo-pagina {
-    font-size: 1.2rem;
-  }
-
-  .imagen-hoja {
-    width: 95%;
-  }
+  .libro { width: 90vw; height: 70vh; }
+  .titulo-pagina { font-size: 1.2rem; }
+  .imagen-hoja { width: 95%; }
 }
 
-/* compus chicas */
 @media (max-width: 1200px) {
-  .libro {
-    width: 80vw;
-    height: 70vh;
-  }
-
-  .titulo-pagina {
-    font-size: 1.3rem;
-  }
+  .libro { width: 80vw; height: 70vh; }
+  .titulo-pagina { font-size: 1.3rem; }
 }
-

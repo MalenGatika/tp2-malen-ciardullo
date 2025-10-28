@@ -14,16 +14,38 @@
   <link rel="stylesheet" href="css/estilo.css">
 </head>
 
-<body class="flex flex-col items-center justify-center min-h-screen text-[#F8EDEB]">
+<body class="flex flex-col items-center justify-center min-h-screen text-[#F8EDEB] pt-24">
 
-  <h1 class="text-5xl mb-10 text-[#F8EDEB]" style="font-family: 'Playfair Display', serif;">
+  <!-- NAV -->
+  <nav class="fixed top-0 left-0 w-full bg-black/40 backdrop-blur-sm shadow-md py-4 z-50">
+    <ul class="flex justify-center gap-10 text-xl font-semibold text-white items-center">
+      <li><a href="bio.html" class="hover:text-pink-300 transition">Bio</a></li>
+
+      <li class="relative">
+        <button id="tecnicasBtn" class="hover:text-pink-300 transition focus:outline-none">
+          Técnicas ▾
+        </button>
+        <ul id="tecnicasMenu"
+            class="hidden absolute bg-black/90 backdrop-blur-md py-3 px-4 rounded-lg shadow-lg text-base space-y-2 mt-2 z-50 w-40">
+          <li><a href="sketch.html" class="block hover:text-pink-300 transition">Sketchbooks</a></li>
+          <li><a href="novela.html" class="block hover:text-pink-300 transition">Novela Gráfica</a></li>
+          <li><a href="comic.html" class="block hover:text-pink-300 transition">Comic</a></li>
+          <li><a href="presas.html" class="block hover:text-pink-300 transition">Proyecto P</a></li>
+        </ul>
+      </li>
+
+      <li><a href="contacto.html" class="hover:text-pink-300 transition">Contacto</a></li>
+    </ul>
+  </nav>
+
+  <!-- TÍTULO -->
+  <h1 class="text-5xl mb-10 text-[#F8EDEB] z-40" style="font-family: 'Playfair Display', serif;">
     Cuadernos
   </h1>
 
-  <!-- Libro -->
-  <div class="libro relative w-[440px] h-[560px] perspective">
+  <!-- LIBRO -->
+  <div class="libro relative w-[440px] h-[560px] perspective z-30">
 
-    <!-- Páginas -->
     <div class="pagina hoja" style="z-index:6">
       <img src="img/cuadernos/sketch1.jpg" alt="Cuaderno 1" class="imagen-hoja">
       <p class="titulo-pagina">Cuaderno 1</p>
@@ -55,23 +77,26 @@
     </div>
   </div>
 
-  <!-- Botones -->
-  <div class="flex gap-6 mt-10">
+  <!-- BOTONES -->
+  <div class="flex gap-6 mt-10 relative z-50">
     <button id="anterior"
-      class="px-6 py-2 bg-[#7A1E3A] text-white rounded-lg shadow hover:bg-[#A23E48] transition text-lg">
+      class="px-6 py-2 bg-[#7A1E3A] text-white rounded-lg shadow-lg hover:bg-[#A23E48] transition text-lg">
       ← Anterior
     </button>
     <button id="siguiente"
-      class="px-6 py-2 bg-[#7A1E3A] text-white rounded-lg shadow hover:bg-[#A23E48] transition text-lg">
+      class="px-6 py-2 bg-[#7A1E3A] text-white rounded-lg shadow-lg hover:bg-[#A23E48] transition text-lg">
       Siguiente →
     </button>
   </div>
 
+  <!-- VOLVER -->
   <a href="index.html"
-     class="mt-10 bg-[#A23E48] text-white px-6 py-2 rounded-lg hover:bg-[#7A1E3A] transition">
+     class="mt-10 bg-[#A23E48] text-white px-6 py-2 rounded-lg hover:bg-[#7A1E3A] transition z-40">
      Volver a la portada
   </a>
 
-  <script src="js/cuadernos.js"></script>
+  <!-- JS -->
+  <script src="js/menu.js"></script>
+  <script src="js/sketch.js"></script>
 </body>
 </html>

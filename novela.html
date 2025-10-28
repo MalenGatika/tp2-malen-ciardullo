@@ -55,6 +55,38 @@
     ← Volver a la portada
   </a>
 </div>
+<nav class="fixed top-0 left-0 w-full bg-black/40 backdrop-blur-sm shadow-md py-4 z-30">
+  <ul class="flex justify-center gap-10 text-xl font-semibold text-white items-center">
+
+    <!-- Bio -->
+    <li>
+      <a href="bio.html" class="hover:text-pink-300 transition">Bio</a>
+    </li>
+
+    <!-- Técnicas con desplegable -->
+    <li class="relative">
+      <button id="tecnicasBtn" class="hover:text-pink-300 transition focus:outline-none">
+        Técnicas ▾
+      </button>
+
+      <ul id="tecnicasMenu"
+          class="hidden absolute bg-black/90 backdrop-blur-md py-3 px-4 rounded-lg shadow-lg text-base space-y-2 mt-2 z-50 w-40">
+        <li><a href="sketch.html" class="block hover:text-pink-300 transition">Sketchbooks</a></li>
+        <li><a href="novela.html" class="block hover:text-pink-300 transition">Novela Gráfica</a></li>
+        <li><a href="comic.html" class="block hover:text-pink-300 transition">Comic</a></li>
+        <li><a href="presas.html" class="block hover:text-pink-300 transition">Proyecto P</a></li>
+      </ul>
+    </li>
+
+    <!-- Contacto -->
+    <li>
+      <a href="contacto.html" class="hover:text-pink-300 transition">Contacto</a>
+    </li>
+    
+  </ul>
+</nav>
+  <script src="js/menu.js"></script>
+
   <script src="js/novela-grafica.js"></script>
 </body>
 </html>
