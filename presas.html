@@ -7,12 +7,12 @@
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="bg-[#3A0A0A] text-[#F8EDEB] font-ubuntu min-h-screen flex flex-col items-center justify-between py-6">
+<body class="bg-[#0f1a24] text-[#f5f1e9] font-ubuntu min-h-screen flex flex-col items-center justify-between py-6">
 
   <div class="relative w-[90%] max-w-5xl mx-auto">
 
     <!-- Fondo medio romboide -->
-    <div class="absolute inset-0 -skew-x-6 bg-[#4B1A1F] opacity-70 rounded-xl"></div>
+    <div class="absolute inset-0 -skew-x-6 bg-[#1c2e40] opacity-80 rounded-xl"></div>
 
     <!-- Contenido principal -->
     <div class="relative flex flex-col md:flex-row gap-6 p-6 md:p-10 items-center">
@@ -20,27 +20,26 @@
       <!-- Imagen -->
       <div class="md:w-1/2 w-full flex justify-center">
         <img id="galeria-imagen" src="img/presas/uno.jpg" alt="Imagen 1"
-          class="w-full h-auto max-h-[70vh] object-cover rounded-lg shadow-xl">
+          class="w-full h-auto max-h-[70vh] object-cover rounded-lg shadow-2xl">
       </div>
 
       <!-- Texto -->
       <div class="md:w-1/2 w-full text-left space-y-4">
-        <h2 class="text-3xl font-semibold tracking-wide text-[#F3EDEA]">
+        <h2 class="text-3xl font-semibold tracking-wide text-[#f5f1e9]">
           Proyecto P
         </h2>
-<p id="galeria-texto" class="text-lg leading-relaxed text-[#EAD7D7]"></p>
-        
+        <p id="galeria-texto" class="text-lg leading-relaxed text-[#d6cec1]"></p>
       </div>
 
     </div>
 
     <!-- Flechas -->
     <button id="anterior"
-      class="absolute left-2 top-1/2 -translate-y-1/2 text-3xl px-3 py-1 bg-[#4B1A1F] hover:bg-[#A23E48] rounded-full">
+      class="absolute left-2 top-1/2 -translate-y-1/2 text-3xl px-3 py-1 bg-[#1c2e40]/80 hover:bg-[#30475e] rounded-full text-[#f5f1e9] shadow-md">
       ‹
     </button>
     <button id="siguiente"
-      class="absolute right-2 top-1/2 -translate-y-1/2 text-3xl px-3 py-1 bg-[#4B1A1F] hover:bg-[#A23E48] rounded-full">
+      class="absolute right-2 top-1/2 -translate-y-1/2 text-3xl px-3 py-1 bg-[#1c2e40]/80 hover:bg-[#30475e] rounded-full text-[#f5f1e9] shadow-md">
       ›
     </button>
 
@@ -48,40 +47,48 @@
 
   <!-- Botón fuera del rombo -->
   <a href="index.html"
-     class="bg-[#A23E48] text-white px-6 py-2 rounded-lg hover:bg-[#7A1E3A] transition">
+     class="bg-[#30475e] text-[#f5f1e9] px-6 py-2 rounded-lg mt-6 hover:bg-[#1c2e40] transition shadow-md">
      Volver a la portada
   </a>
-  <nav class="fixed top-0 left-0 w-full bg-black/40 backdrop-blur-sm shadow-md py-4 z-30 px-4 md:px-0">
-  <div class="flex justify-between items-center">
-    <div class="text-white font-bold text-xl">Menú</div>
-    <!-- Botón hamburguesa -->
-    <button id="hamburgerBtn" class="text-white md:hidden focus:outline-none">
+
+  <!-- NAV -->
+ <nav class="fixed top-0 left-0 w-full bg-black/40 backdrop-blur-sm shadow-md z-50">
+  <div class="max-w-6xl mx-auto flex justify-between items-center px-4 py-3">
+
+    <!-- Logo / nombre -->
+    <div class="text-white text-sm font-semibold">
+      Explorar
+    </div>
+
+    <!-- Botón hamburguesa (solo en mobile) -->
+    <button id="menuBtn" class="text-white md:hidden focus:outline-none">
       ☰
     </button>
+
+    <!-- Menú principal -->
+    <ul id="menu" class="hidden md:flex gap-10 text-white font-semibold items-center">
+      <li><a href="bio.html" class="hover:text-pink-300 transition">Bio</a></li>
+
+      <!-- Submenú técnicas -->
+      <li class="relative group">
+        <button class="hover:text-pink-300 transition focus:outline-none flex items-center">
+          Técnicas ▾
+        </button>
+        <ul class="absolute left-0 top-full mt-2 w-40 bg-black/90 backdrop-blur-md rounded-lg shadow-lg space-y-2 p-2 hidden group-hover:flex flex-col z-50">
+          <li><a href="sketch.html" class="block hover:text-pink-300 transition">Sketchbooks</a></li>
+          <li><a href="novela.html" class="block hover:text-pink-300 transition">Novela Gráfica</a></li>
+          <li><a href="comic.html" class="block hover:text-pink-300 transition">Comic</a></li>
+          <li><a href="presas.html" class="block hover:text-pink-300 transition">Proyecto P</a></li>
+        </ul>
+      </li>
+
+      <li><a href="contacto.html" class="hover:text-pink-300 transition">Contacto</a></li>
+    </ul>
+
   </div>
-
-  <!-- Menú principal -->
-  <ul id="menuItems" class="hidden flex-col md:flex md:flex-row md:justify-center gap-10 text-xl font-semibold text-white mt-4 md:mt-0">
-    <li><a href="bio.html" class="hover:text-pink-300 transition block py-2 md:py-0">Bio</a></li>
-
-    <li class="relative">
-      <button id="tecnicasBtn" class="hover:text-pink-300 transition focus:outline-none block py-2 md:py-0">
-        Técnicas ▾
-      </button>
-      <ul id="tecnicasMenu" class="hidden absolute bg-black/90 backdrop-blur-md py-3 px-4 rounded-lg shadow-lg text-base space-y-2 mt-2 w-40 md:mt-0 md:ml-0">
-        <li><a href="sketch.html" class="block hover:text-pink-300 transition">Sketchbooks</a></li>
-        <li><a href="novela.html" class="block hover:text-pink-300 transition">Novela Gráfica</a></li>
-        <li><a href="comic.html" class="block hover:text-pink-300 transition">Comic</a></li>
-        <li><a href="presas.html" class="block hover:text-pink-300 transition">Proyecto P</a></li>
-      </ul>
-    </li>
-
-    <li><a href="contacto.html" class="hover:text-pink-300 transition block py-2 md:py-0">Contacto</a></li>
-  </ul>
 </nav>
 
   <script src="js/menu.js"></script>
-
   <script src="js/presas.js"></script>
 
 </body>

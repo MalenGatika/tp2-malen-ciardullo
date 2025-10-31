@@ -66,3 +66,66 @@ anteriorBtn.onclick = anterior;
 vista.addEventListener("click", e => {
   if(e.target === vista) cerrarPagina();
 });
+
+// ==========================
+// ZOOM dinámico con mouse (versión funcional completa)
+// ==========================
+let zoomActivo = false;
+
+function activarZoom() {
+  const zoomContainer = document.querySelector(".zoom-container");
+  const imagenGrande = document.getElementById("imagenGrande");
+
+  if (!zoomContainer || !imagenGrande) return;
+
+  // Resetea estado inicial
+  imagenGrande.style.transform = "scale(1)";
+  imagenGrande.style.transition = "transform 0.2s ease-out";
+  imagenGrande.style.transformOrigin = "center center";
+
+  zoomContainer.addEventListener("mousemove", (e) => {
+    if (!zoomActivo) return;
+
+    const rect = zoomContainer.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
+
+    imagenGrande.style.transformOrigin = `${x}% ${y}%`;
+    imagenGrande.style.transform = "scale(2.8)"; // nivel de zoom
+  });
+
+  zoomContainer.addEventListener("mouseleave", () => {
+    if (!zoomActivo) return;
+    imagenGrande.style.transform = "scale(1)";
+  });
+
+  zoomContainer.addEventListener("click", (e) => {
+    e.stopPropagation(); // evita cerrar overlay
+    zoomActivo = !zoomActivo;
+
+    if (zoomActivo) {
+      zoomContainer.classList.add("zoom-activo");
+      imagenGrande.style.cursor = "zoom-out";
+      imagenGrande.style.transform = "scale(2.8)";
+    } else {
+      zoomContainer.classList.remove("zoom-activo");
+      imagenGrande.style.cursor = "zoom-in";
+      imagenGrande.style.transform = "scale(1)";
+    }
+  });
+}
+
+// Activar zoom cada vez que se abre una imagen
+function abrirPagina(i) {
+  indice = i;
+  imagen.src = paginas[indice];
+
+  imagen.style.animation = 'none';
+  void imagen.offsetWidth;
+  imagen.style.animation = 'abrirOverlay 0.4s ease forwards';
+
+  vista.classList.remove("hidden");
+
+  // Activar zoom una vez que cargue la imagen
+  imagen.onload = activarZoom;
+}

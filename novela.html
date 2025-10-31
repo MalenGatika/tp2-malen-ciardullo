@@ -14,6 +14,8 @@
 <body class="bg-bordo-oscuro font-ubuntu text-blanco-suave">
 
   <header class="text-center mt-8 mb-8">
+
+    
     <h1 class="font-fell text-5xl text-bordo-claro mb-2">Trópico de Cáncer</h1>
     <h2 class="font-ubuntu text-2xl text-beige">Henry Miller</h2>
   </header>
@@ -35,9 +37,10 @@
     <img src="img/comic/page13.webp" alt="Página 13" class="miniatura" onclick="abrirPagina(12)">
   </div>
 
-  <!-- Overlay página grande -->
-  <div id="vistaGrande" class="fixed inset-0 bg-black/90 hidden flex justify-center items-center z-50">
+<div id="vistaGrande" class="fixed inset-0 bg-black/90 hidden flex justify-center items-center z-50">
+  <div class="zoom-container">
     <img id="imagenGrande" src="" alt="Página grande" class="imagen-grande">
+  </div>
     
     <!-- Botón cerrar -->
     <button id="cerrar" class="absolute top-6 right-8 text-white text-4xl hover:scale-125 transition-transform">×</button>
@@ -55,36 +58,8 @@
     ← Volver a la portada
   </a>
 </div>
-<nav class="fixed top-0 left-0 w-full bg-black/40 backdrop-blur-sm shadow-md py-4 z-30">
-  <ul class="flex justify-center gap-10 text-xl font-semibold text-white items-center">
 
-    <!-- Bio -->
-    <li>
-      <a href="bio.html" class="hover:text-pink-300 transition">Bio</a>
-    </li>
 
-    <!-- Técnicas con desplegable -->
-    <li class="relative">
-      <button id="tecnicasBtn" class="hover:text-pink-300 transition focus:outline-none">
-        Técnicas ▾
-      </button>
-
-      <ul id="tecnicasMenu"
-          class="hidden absolute bg-black/90 backdrop-blur-md py-3 px-4 rounded-lg shadow-lg text-base space-y-2 mt-2 z-50 w-40">
-        <li><a href="sketch.html" class="block hover:text-pink-300 transition">Sketchbooks</a></li>
-        <li><a href="novela.html" class="block hover:text-pink-300 transition">Novela Gráfica</a></li>
-        <li><a href="comic.html" class="block hover:text-pink-300 transition">Comic</a></li>
-        <li><a href="presas.html" class="block hover:text-pink-300 transition">Proyecto P</a></li>
-      </ul>
-    </li>
-
-    <!-- Contacto -->
-    <li>
-      <a href="contacto.html" class="hover:text-pink-300 transition">Contacto</a>
-    </li>
-    
-  </ul>
-</nav>
   <script src="js/menu.js"></script>
 
   <script src="js/novela-grafica.js"></script>

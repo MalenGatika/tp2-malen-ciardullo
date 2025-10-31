@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cuadernos - Sketchbooks</title>
 
   <!-- Tailwind -->
@@ -10,6 +10,7 @@
 
   <!-- Fuentes -->
   <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Homemade+Apple&family=Ubuntu:wght@300;400;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="css/estilo.css">
 </head>
@@ -17,76 +18,76 @@
 <body class="flex flex-col items-center justify-center min-h-screen text-[#F8EDEB] pt-24">
 
   <!-- NAV -->
-  <nav class="fixed top-0 left-0 w-full bg-black/40 backdrop-blur-sm shadow-md py-4 z-50">
-    <ul class="flex justify-center gap-10 text-xl font-semibold text-white items-center">
-      <li><a href="bio.html" class="hover:text-pink-300 transition">Bio</a></li>
+  <nav class="fixed top-0 left-0 w-full bg-black/40 backdrop-blur-sm shadow-md z-50">
+    <div class="max-w-6xl mx-auto flex justify-between items-center px-4 py-3">
 
-      <li class="relative">
-        <button id="tecnicasBtn" class="hover:text-pink-300 transition focus:outline-none">
-          Técnicas ▾
-        </button>
-        <ul id="tecnicasMenu"
-            class="hidden absolute bg-black/90 backdrop-blur-md py-3 px-4 rounded-lg shadow-lg text-base space-y-2 mt-2 z-50 w-40">
-          <li><a href="sketch.html" class="block hover:text-pink-300 transition">Sketchbooks</a></li>
-          <li><a href="novela.html" class="block hover:text-pink-300 transition">Novela Gráfica</a></li>
-          <li><a href="comic.html" class="block hover:text-pink-300 transition">Comic</a></li>
-          <li><a href="presas.html" class="block hover:text-pink-300 transition">Proyecto P</a></li>
-        </ul>
-      </li>
+      <!-- Logo / nombre -->
+      <div class="text-white text-sm font-semibold">Explorar</div>
 
-      <li><a href="contacto.html" class="hover:text-pink-300 transition">Contacto</a></li>
-    </ul>
+      <!-- Botón hamburguesa (solo en mobile) -->
+      <button id="menuBtn" class="text-white md:hidden focus:outline-none">☰</button>
+
+      <!-- Menú principal -->
+      <ul id="menu" class="hidden md:flex gap-10 text-white font-semibold items-center">
+        <li><a href="bio.html" class="hover:text-pink-300 transition">Bio</a></li>
+        <li class="relative group">
+          <button class="hover:text-pink-300 transition focus:outline-none flex items-center">
+            Técnicas ▾
+          </button>
+          <ul class="absolute left-0 top-full w-40 bg-black/90 backdrop-blur-sm rounded-sm shadow-sm space-y-1 p-2 hidden group-hover:flex flex-col z-50">
+            <li><a href="sketch.html" class="block hover:text-pink-300 transition">Sketchbooks</a></li>
+            <li><a href="novela.html" class="block hover:text-pink-300 transition">Novela Gráfica</a></li>
+            <li><a href="comic.html" class="block hover:text-pink-300 transition">Comic</a></li>
+            <li><a href="presas.html" class="block hover:text-pink-300 transition">Proyecto P</a></li>
+          </ul>
+        </li>
+        <li><a href="contacto.html" class="hover:text-pink-300 transition">Contacto</a></li>
+      </ul>
+
+    </div>
   </nav>
 
   <!-- TÍTULO -->
-  <h1 class="text-5xl mb-10 text-[#F8EDEB] z-40" style="font-family: 'Playfair Display', serif;">
+  <h1 class="text-5xl mb-10 text-[#F8EDEB] z-40" style="font-family: 'Homemade Apple', cursive;">
     Cuadernos
   </h1>
 
-  <!-- LIBRO -->
-  <div class="libro relative w-[440px] h-[560px] perspective z-30">
+  <!-- CONTENEDOR DEL LIBRO Y FLECHAS -->
+  <div class="libro-container relative flex items-center justify-center z-30">
 
-    <div class="pagina hoja" style="z-index:6">
-      <img src="img/cuadernos/sketch1.jpg" alt="Cuaderno 1" class="imagen-hoja">
-      <p class="titulo-pagina">Cuaderno 1</p>
+    <!-- Flecha izquierda -->
+    <button id="anterior" class="absolute left-[-50px] text-3xl md:text-4xl text-white hover:text-pink-300 transition z-50">‹</button>
+
+    <!-- LIBRO -->
+    <div class="libro relative w-[440px] h-[560px] perspective">
+      <div class="pagina hoja" style="z-index:6">
+        <img src="img/cuadernos/sketch1.jpg" alt="Cuaderno 1" class="imagen-hoja">
+        <p class="titulo-pagina">Cuaderno 1</p>
+      </div>
+      <div class="pagina hoja" style="z-index:5">
+        <img src="img/cuadernos/sketch2.jpg" alt="Cuaderno 2" class="imagen-hoja">
+        <p class="titulo-pagina">Cuaderno 2</p>
+      </div>
+      <div class="pagina hoja" style="z-index:4">
+        <img src="img/cuadernos/sketch3.jpg" alt="Cuaderno 3" class="imagen-hoja">
+        <p class="titulo-pagina">Cuaderno 3</p>
+      </div>
+      <div class="pagina hoja" style="z-index:3">
+        <img src="img/cuadernos/sketch4.jpg" alt="Cuaderno 4" class="imagen-hoja">
+        <p class="titulo-pagina">Cuaderno 4</p>
+      </div>
+      <div class="pagina hoja" style="z-index:2">
+        <img src="img/cuadernos/sketch5.jpg" alt="Cuaderno 5" class="imagen-hoja">
+        <p class="titulo-pagina">Cuaderno 5</p>
+      </div>
+      <div class="pagina hoja" style="z-index:1">
+        <img src="img/cuadernos/sketch6.jpg" alt="Cuaderno 6" class="imagen-hoja">
+        <p class="titulo-pagina">Cuaderno 6</p>
+      </div>
     </div>
 
-    <div class="pagina hoja" style="z-index:5">
-      <img src="img/cuadernos/sketch2.jpg" alt="Cuaderno 2" class="imagen-hoja">
-      <p class="titulo-pagina">Cuaderno 2</p>
-    </div>
-
-    <div class="pagina hoja" style="z-index:4">
-      <img src="img/cuadernos/sketch3.jpg" alt="Cuaderno 3" class="imagen-hoja">
-      <p class="titulo-pagina">Cuaderno 3</p>
-    </div>
-
-    <div class="pagina hoja" style="z-index:3">
-      <img src="img/cuadernos/sketch4.jpg" alt="Cuaderno 4" class="imagen-hoja">
-      <p class="titulo-pagina">Cuaderno 4</p>
-    </div>
-
-    <div class="pagina hoja" style="z-index:2">
-      <img src="img/cuadernos/sketch5.jpg" alt="Cuaderno 5" class="imagen-hoja">
-      <p class="titulo-pagina">Cuaderno 5</p>
-    </div>
-
-    <div class="pagina hoja" style="z-index:1">
-      <img src="img/cuadernos/sketch6.jpg" alt="Cuaderno 6" class="imagen-hoja">
-      <p class="titulo-pagina">Cuaderno 6</p>
-    </div>
-  </div>
-
-  <!-- BOTONES -->
-  <div class="flex gap-6 mt-10 relative z-50">
-    <button id="anterior"
-      class="px-6 py-2 bg-[#7A1E3A] text-white rounded-lg shadow-lg hover:bg-[#A23E48] transition text-lg">
-      ← Anterior
-    </button>
-    <button id="siguiente"
-      class="px-6 py-2 bg-[#7A1E3A] text-white rounded-lg shadow-lg hover:bg-[#A23E48] transition text-lg">
-      Siguiente →
-    </button>
+    <!-- Flecha derecha -->
+    <button id="siguiente" class="absolute right-[-50px] text-3xl md:text-4xl text-white hover:text-pink-300 transition z-50">›</button>
   </div>
 
   <!-- VOLVER -->
