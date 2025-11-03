@@ -370,6 +370,13 @@ form#formContacto button[type="submit"]:hover {
   background-color: var(--azul-profundo);
 }
 
+
+/* formulario de contacto*/
+.oculto {
+  display: none;
+}
+
+
 /* =========================================
    FOOTER
    ========================================= */

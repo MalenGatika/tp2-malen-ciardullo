@@ -21,68 +21,66 @@ const cerrar = document.getElementById("cerrar");
 const siguienteBtn = document.getElementById("siguiente");
 const anteriorBtn = document.getElementById("anterior");
 
-function abrirPagina(i){
+let zoomActivo = false;
+const zoomContainer = document.querySelector(".zoom-container");
+
+// ==========================
+// FUNCIONES GALERÍA
+// ==========================
+function abrirPagina(i) {
   indice = i;
   imagen.src = paginas[indice];
 
   // Reiniciar animación
   imagen.style.animation = 'none';
-  void imagen.offsetWidth; // fuerza reinicio DOM
+  void imagen.offsetWidth;
   imagen.style.animation = 'abrirOverlay 0.4s ease forwards';
 
   vista.classList.remove("hidden");
+
+  // Resetear zoom
+  zoomActivo = false;
+  zoomContainer.classList.remove("zoom-activo");
+  imagen.style.transform = "scale(1)";
+  imagen.style.cursor = "zoom-in";
 }
 
-function cerrarPagina(){
+function cerrarPagina() {
   vista.classList.add("hidden");
+  zoomActivo = false;
+  zoomContainer.classList.remove("zoom-activo");
+  imagen.style.transform = "scale(1)";
+  imagen.style.cursor = "zoom-in";
 }
 
-function siguiente(){
+function siguiente() {
   indice = (indice + 1) % paginas.length;
-  imagen.src = paginas[indice];
-
-  // Reiniciar animación al cambiar página
-  imagen.style.animation = 'none';
-  void imagen.offsetWidth;
-  imagen.style.animation = 'abrirOverlay 0.4s ease forwards';
+  abrirPagina(indice);
 }
 
-function anterior(){
+function anterior() {
   indice = (indice - 1 + paginas.length) % paginas.length;
-  imagen.src = paginas[indice];
-
-  // Reiniciar animación al cambiar página
-  imagen.style.animation = 'none';
-  void imagen.offsetWidth;
-  imagen.style.animation = 'abrirOverlay 0.4s ease forwards';
+  abrirPagina(indice);
 }
 
-// Eventos botones
+// ==========================
+// EVENTOS BOTONES
+// ==========================
 cerrar.onclick = cerrarPagina;
 siguienteBtn.onclick = siguiente;
 anteriorBtn.onclick = anterior;
-
-// Cerrar overlay al hacer clic fuera de la imagen
-vista.addEventListener("click", e => {
-  if(e.target === vista) cerrarPagina();
-});
+vista.addEventListener("click", e => { if(e.target === vista) cerrarPagina(); });
 
 // ==========================
-// ZOOM dinámico con mouse (versión funcional completa)
+// ZOOM dinámico
 // ==========================
-let zoomActivo = false;
-
 function activarZoom() {
-  const zoomContainer = document.querySelector(".zoom-container");
-  const imagenGrande = document.getElementById("imagenGrande");
+  if (!zoomContainer || !imagen) return;
 
-  if (!zoomContainer || !imagenGrande) return;
+  imagen.style.transition = "transform 0.2s ease-out";
+  imagen.style.transformOrigin = "center center";
 
-  // Resetea estado inicial
-  imagenGrande.style.transform = "scale(1)";
-  imagenGrande.style.transition = "transform 0.2s ease-out";
-  imagenGrande.style.transformOrigin = "center center";
-
+  // MOUSEMOVE
   zoomContainer.addEventListener("mousemove", (e) => {
     if (!zoomActivo) return;
 
@@ -90,42 +88,32 @@ function activarZoom() {
     const x = ((e.clientX - rect.left) / rect.width) * 100;
     const y = ((e.clientY - rect.top) / rect.height) * 100;
 
-    imagenGrande.style.transformOrigin = `${x}% ${y}%`;
-    imagenGrande.style.transform = "scale(2.8)"; // nivel de zoom
+    imagen.style.transformOrigin = `${x}% ${y}%`;
+    imagen.style.transform = "scale(2.8)";
   });
 
+  // PARA QUE SIGA EL MOUSE
   zoomContainer.addEventListener("mouseleave", () => {
     if (!zoomActivo) return;
-    imagenGrande.style.transform = "scale(1)";
+    imagen.style.transform = "scale(1)";
   });
 
+  // CLICK PARA ACTIVAR/DESACTIVAR ZOOM
   zoomContainer.addEventListener("click", (e) => {
-    e.stopPropagation(); // evita cerrar overlay
+    e.stopPropagation();
     zoomActivo = !zoomActivo;
 
     if (zoomActivo) {
       zoomContainer.classList.add("zoom-activo");
-      imagenGrande.style.cursor = "zoom-out";
-      imagenGrande.style.transform = "scale(2.8)";
+      imagen.style.cursor = "zoom-out";
+      imagen.style.transform = "scale(2.8)";
     } else {
       zoomContainer.classList.remove("zoom-activo");
-      imagenGrande.style.cursor = "zoom-in";
-      imagenGrande.style.transform = "scale(1)";
+      imagen.style.cursor = "zoom-in";
+      imagen.style.transform = "scale(1)";
     }
   });
 }
 
-// Activar zoom cada vez que se abre una imagen
-function abrirPagina(i) {
-  indice = i;
-  imagen.src = paginas[indice];
-
-  imagen.style.animation = 'none';
-  void imagen.offsetWidth;
-  imagen.style.animation = 'abrirOverlay 0.4s ease forwards';
-
-  vista.classList.remove("hidden");
-
-  // Activar zoom una vez que cargue la imagen
-  imagen.onload = activarZoom;
-}
+// Llamar solo una vez al cargar la página
+activarZoom();

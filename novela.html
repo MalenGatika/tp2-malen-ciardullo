@@ -13,12 +13,42 @@
 </head>
 <body class="bg-bordo-oscuro font-ubuntu text-blanco-suave">
 
-  <header class="text-center mt-8 mb-8">
+  <nav class="fixed top-0 left-0 w-full bg-black/40 backdrop-blur-sm shadow-md z-50">
+  <div class="max-w-6xl mx-auto flex justify-between items-center px-4 py-3">
 
-    
-    <h1 class="font-fell text-5xl text-bordo-claro mb-2">Trópico de Cáncer</h1>
-    <h2 class="font-ubuntu text-2xl text-beige">Henry Miller</h2>
-  </header>
+    <!-- Logo -->
+    <div class="text-white text-sm font-semibold"> :) </div>
+
+    <!-- Botón hamburguesa (solo en mobile) -->
+    <button id="menuBtn" class="text-white md:hidden focus:outline-none">☰</button>
+
+    <!-- Menú principal -->
+    <ul id="menu" class="hidden md:flex gap-10 text-white font-semibold items-center">
+      <li><a href="bio.html" class="hover:text-pink-300 transition">Bio</a></li>
+
+      <li class="relative group">
+        <button id="tecnicasBtn" class="hover:text-pink-300 transition focus:outline-none flex items-center">
+          Técnicas ▾
+        </button>
+        <ul id="tecnicasMenu"
+            class="hidden absolute left-0 top-full w-40 bg-black/90 backdrop-blur-sm rounded-sm shadow-sm space-y-1 p-2 z-50">
+          <li><a href="sketch.html" class="block hover:text-pink-300 transition">Sketchbooks</a></li>
+          <li><a href="novela.html" class="block hover:text-pink-300 transition">Novela Gráfica</a></li>
+          <li><a href="comic.html" class="block hover:text-pink-300 transition">Comic</a></li>
+          <li><a href="presas.html" class="block hover:text-pink-300 transition">Proyecto P</a></li>
+        </ul>
+      </li>
+
+      <li><a href="contacto.html" class="hover:text-pink-300 transition">Contacto</a></li>
+      <li><a href="about.html" class="hover:text-pink-300 transition">About</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="text-center mt-24 mb-8">
+  <h1 class="font-fell text-5xl text-bordo-claro mb-2">Trópico de Cáncer</h1>
+  <h2 class="font-ubuntu text-2xl text-beige">Henry Miller</h2>
+</header>
 
   <!-- Galería de miniaturas -->
   <div id="galeria" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 max-w-6xl mx-auto p-4">
@@ -51,6 +81,9 @@
     <!-- Botón siguiente -->
     <button id="siguiente" class="absolute right-4 top-1/2 transform -translate-y-1/2 text-white text-3xl hover:scale-125 transition-transform">›</button>
   </div>
+
+
+
 <!-- Botón de volver a la portada -->
 <div class="flex justify-center mt-8">
   <a href="index.html"
