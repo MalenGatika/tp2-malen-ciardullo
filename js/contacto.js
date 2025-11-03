@@ -22,6 +22,8 @@ document.addEventListener("DOMContentLoaded", function () {
       mostrarError("Por favor, completá todos los campos.");
       return;
     }
+    // desagrupar una por una por separado //
+    
 
     if (!soloLetras.test(nombre)) {
       mostrarError("El nombre solo puede contener letras y espacios.");
